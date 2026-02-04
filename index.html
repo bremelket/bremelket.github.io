@@ -170,6 +170,9 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             transition: all 0.3s;
             border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            min-height: 400px;
         }
 
         .project-card:hover {
@@ -180,18 +183,23 @@
         .project-icon {
             font-size: 3rem;
             margin-bottom: 20px;
+            text-align: center;
         }
 
         .project-card h3 {
             font-size: 1.5rem;
             margin-bottom: 15px;
             color: #2d3748;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
         }
 
         .project-tech {
             font-size: 0.9rem;
             color: #718096;
             margin-bottom: 15px;
+            min-height: 45px;
         }
 
         .project-metric {
@@ -199,11 +207,19 @@
             color: #667eea;
             font-weight: 600;
             margin-bottom: 20px;
+            min-height: 30px;
+        }
+
+        .project-card > p {
+            flex-grow: 1;
+            margin-bottom: 20px;
         }
 
         .project-links {
             display: flex;
             gap: 15px;
+            justify-content: center;
+            margin-top: auto;
         }
 
         .project-link {
@@ -325,7 +341,7 @@
         <div class="hero-content">
             <img src="profile-photo.jpg" alt="Ekaterina Bremel" class="profile-photo">
             <h1>Ekaterina Bremel</h1>
-            <p class="subtitle">Computer Science Student | 4.0 GPA | Machine Learning Engineer | Data Scientist</p>
+            <p class="subtitle">Computer Science Student | 4.0 GPA | Machine Learning Engineer</p>
             <p class="tagline">Building ML solutions that deliver measurable impact</p>
             
             <div class="social-links">
@@ -335,7 +351,7 @@
                 <a href="https://github.com/bremelket" target="_blank" aria-label="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="mailto:bremelket@gmail.com" aria-label="Email">
+                <a href="/cdn-cgi/l/email-protection#e18393848c848d8a8495a1868c80888dcf828e8c" aria-label="Email">
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>
@@ -355,55 +371,67 @@
             <!-- Project 1: Steel Temperature -->
             <div class="project-card">
                 <div class="project-icon">🔥</div>
-                <h3>Steel Temperature Prediction for Energy Optimization</h3>
-                <p class="project-tech">Python | Scikit-learn | Machine Learning | CatBoost | Random Forest | Seaborn</p>
-                <p class="project-metric">MAE: 4.05°C | 15-20% energy reduction in electricity consumption</p>
+                <h3>Steel Temperature Prediction</h3>
+                <p class="project-tech">Python | Scikit-learn | CatBoost | Random Forest</p>
+                <p class="project-metric">MAE: 4.05°C | 15-20% energy reduction</p>
                 <p>Regression model forecasting steel temperatures to optimize energy usage in manufacturing operations.</p>
                 <div class="project-links">
                     <a href="https://github.com/bremelket/steel-temperature-prediction" target="_blank" class="project-link">
                         <i class="fab fa-github"></i> GitHub
                     </a>
-                </div>
-            </div>
-
-            <!-- Project 2: Toxic Comment Classification for Content Moderation -->
-            <div class="project-card">
-                <div class="project-icon">💬</div>
-                <h3>Toxic Comment Classification</h3>
-                <p class="project-tech">Python | NLTK | Scikit-learn | NLP | Logistic Regression | TF-IDF </p>
-                <p class="project-metric">F1: 0.78 | 60% workload reduction</p>
-                <p>NLP classifier for automated content moderation using TF-IDF to maintain healthy online communities.</p>
-                <div class="project-links">
-                    <a href="https://github.com/bremelket/toxic-comment-classification" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i> GitHub
+                    <a href="https://bremelket.github.io/steel-temperature-prediction/" target="_blank" class="project-link">
+                        <i class="fas fa-external-link-alt"></i> Demo
                     </a>
                 </div>
             </div>
 
-            <!-- Project 3: Customer Age Estimation from Photos using Computer Vision -->
+            <!-- Project 2: Age Estimation -->
             <div class="project-card">
                 <div class="project-icon">👤</div>
                 <h3>Customer Age Estimation</h3>
-                <p class="project-tech">TensorFlow | ResNet50 | CNN | Computer Vision | Matplotlib</p>
+                <p class="project-tech">TensorFlow | ResNet50 | CNN | Computer Vision</p>
                 <p class="project-metric">MAE: 5.89 years | 72% error reduction</p>
-                <p>CNN using transfer learning to estimate customer age for retail analytics and supporting age-restricted product compliance without manual verification.</p>
+                <p>CNN using transfer learning to estimate customer age for retail analytics and compliance support.</p>
                 <div class="project-links">
                     <a href="https://github.com/bremelket/customer-age-estimation" target="_blank" class="project-link">
                         <i class="fab fa-github"></i> GitHub
                     </a>
+                    <a href="https://bremelket.github.io/customer-age-estimation/" target="_blank" class="project-link">
+                        <i class="fas fa-external-link-alt"></i> Demo
+                    </a>
                 </div>
             </div>
 
-            <!-- Project 4: Gold Recovery Prediction for Ore Processing Optimization -->
+            <!-- Project 3: Toxic Comments -->
+            <div class="project-card">
+                <div class="project-icon">💬</div>
+                <h3>Toxic Comment Classification</h3>
+                <p class="project-tech">Python | NLTK | Scikit-learn | NLP</p>
+                <p class="project-metric">F1: 0.78 | 60% workload reduction</p>
+                <p>NLP classifier for automated content moderation using TF-IDF to maintain healthy communities.</p>
+                <div class="project-links">
+                    <a href="https://github.com/bremelket/toxic-comment-classification" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://bremelket.github.io/toxic-comment-classification/" target="_blank" class="project-link">
+                        <i class="fas fa-external-link-alt"></i> Demo
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 4: Gold Recovery -->
             <div class="project-card">
                 <div class="project-icon">⛏️</div>
                 <h3>Gold Recovery Prediction</h3>
-                <p class="project-tech">Python | NumPy | Scikit-learn | Random Forest | Cross-validation</p>
+                <p class="project-tech">Python | Pandas | Scikit-learn | Random Forest</p>
                 <p class="project-metric">sMAPE: 8.97% | Reduced processing costs</p>
-                <p>Predictive model for mining efficiency optimization to avoid processing unprofitable ore batches and optimize resource allocation for improved margins.</p>
+                <p>Predictive model for mining efficiency to avoid processing unprofitable ore batches.</p>
                 <div class="project-links">
                     <a href="https://github.com/bremelket/gold-recovery-prediction" target="_blank" class="project-link">
                         <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://bremelket.github.io/gold-recovery-prediction/" target="_blank" class="project-link">
+                        <i class="fas fa-external-link-alt"></i> Demo
                     </a>
                 </div>
             </div>
@@ -427,7 +455,7 @@
 
             <div class="skill-category">
                 <h3>ML Techniques</h3>
-                <p>Regression, Classification, Clustering, Ensemble Methods(Random Forest, CatBoost, LightGBM), Hyperparameter Tuning, Cross-Validation</p>
+                <p>Regression, Classification, Clustering, Ensemble Methods (Random Forest, CatBoost, LightGBM), Hyperparameter Tuning, Cross-Validation</p>
             </div>
 
             <div class="skill-category">
@@ -459,7 +487,7 @@
             <a href="https://github.com/bremelket" target="_blank" class="contact-link">
                 <i class="fab fa-github"></i> GitHub
             </a>
-            <a href="mailto:bremelket@gmail.com" class="contact-link">
+            <a href="/cdn-cgi/l/email-protection#a2c0d0c7cfc7cec9c7d6e2c5cfc3cbce8cc1cdcf" class="contact-link">
                 <i class="fas fa-envelope"></i> Email
             </a>
             <a href="Ekaterina_Bremel_Resume.pdf" class="contact-link" download>
@@ -470,7 +498,4 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Ekaterina Bremel | All rights reserved.</p>
-    </footer>
-</body>
-</html>
+        <p>&copy; 2026 Ekate
