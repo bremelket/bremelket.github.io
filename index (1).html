@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekaterina Bremel | Data Science Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #2d3748;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2d3748;
+        }
+
+        .project-tech {
+            font-size: 0.9rem;
+            color: #718096;
+            margin-bottom: 15px;
+        }
+
+        .project-metric {
+            font-size: 1.1rem;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-link {
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .project-link:hover {
+            background: #764ba2;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .skill-category {
+            background: #f7fafc;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .skill-category h3 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .skill-category p {
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 15px 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .contact-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="profile-photo.jpg" alt="Ekaterina Bremel" class="profile-photo">
+            <h1>Ekaterina Bremel</h1>
+            <p class="subtitle">Computer Science Student | 4.0 GPA | Machine Learning Engineer</p>
+            <p class="tagline">Building ML solutions that deliver measurable impact</p>
+            
+            <div class="social-links">
+                <a href="https://linkedin.com/in/ekaterina-bremel-65b1b1238" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/bremelket" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:bremelket@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View My Projects</a>
+                <a href="Ekaterina_Bremel_Resume.pdf" class="btn btn-secondary" download>Download Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        
+        <div class="projects-grid">
+            <!-- Project 1: Steel Temperature -->
+            <div class="project-card">
+                <div class="project-icon">🔥</div>
+                <h3>Steel Temperature Prediction</h3>
+                <p class="project-tech">Python | Scikit-learn | CatBoost | Random Forest</p>
+                <p class="project-metric">MAE: 4.05°C | 15-20% energy reduction</p>
+                <p>Regression model forecasting steel temperatures to optimize energy usage in manufacturing operations.</p>
+                <div class="project-links">
+                    <a href="https://github.com/bremelket/steel-temperature-prediction" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://bremelket.github.io/steel-temperature-prediction/" target="_blank" class="project-link">
+                        <i class="fas fa-external-link-alt"></i> Demo
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 2: Age Estimation -->
+            <div class="project-card">
+                <div class="project-icon">👤</div>
+                <h3>Customer Age Estimation</h3>
+                <p class="project-tech">TensorFlow | ResNet50 | CNN | Computer Vision</p>
+                <p class="project-metric">MAE: 5.89 years | 72% error reduction</p>
+                <p>CNN using transfer learning to estimate customer age for retail analytics and compliance support.</p>
+                <div class="project-links">
+                    <a href="https://github.com/bremelket/customer-age-estimation" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://bremelket.github.io/customer-age-estimation/" target="_blank" class="project-link">
+                        <i class="fas fa-external-link-alt"></i> Demo
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 3: Toxic Comments -->
+            <div class="project-card">
+                <div class="project-icon">💬</div>
+                <h3>Toxic Comment Classification</h3>
+                <p class="project-tech">Python | NLTK | Scikit-learn | NLP</p>
+                <p class="project-metric">F1: 0.78 | 60% workload reduction</p>
+                <p>NLP classifier for automated content moderation using TF-IDF to maintain healthy communities.</p>
+                <div class="project-links">
+                    <a href="https://github.com/bremelket/toxic-comment-classification" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://bremelket.github.io/toxic-comment-classification/" target="_blank" class="project-link">
+                        <i class="fas fa-external-link-alt"></i> Demo
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 4: Gold Recovery -->
+            <div class="project-card">
+                <div class="project-icon">⛏️</div>
+                <h3>Gold Recovery Prediction</h3>
+                <p class="project-tech">Python | Pandas | Scikit-learn | Random Forest</p>
+                <p class="project-metric">sMAPE: 8.97% | Improved margins</p>
+                <p>Predictive model for mining efficiency to avoid processing unprofitable ore batches.</p>
+                <div class="project-links">
+                    <a href="https://github.com/bremelket/gold-recovery-prediction" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://bremelket.github.io/gold-recovery-prediction/" target="_blank" class="project-link">
+                        <i class="fas fa-external-link-alt"></i> Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Languages</h3>
+                <p>Python, SQL, JavaScript, C++</p>
+            </div>
+
+            <div class="skill-category">
+                <h3>ML Frameworks & Libraries</h3>
+                <p>Scikit-learn, TensorFlow, Keras, LightGBM, CatBoost, Pandas, NumPy</p>
+            </div>
+
+            <div class="skill-category">
+                <h3>ML Techniques</h3>
+                <p>Regression, Classification, Clustering, Ensemble Methods, Hyperparameter Tuning, Cross-Validation</p>
+            </div>
+
+            <div class="skill-category">
+                <h3>Deep Learning & NLP</h3>
+                <p>CNNs (ResNet50), TF-IDF, Word Embeddings, NLTK, Text Classification, Computer Vision</p>
+            </div>
+
+            <div class="skill-category">
+                <h3>Data Analysis & Visualization</h3>
+                <p>EDA, Feature Engineering, Statistical Analysis, A/B Testing, Matplotlib, Seaborn, Data Storytelling</p>
+            </div>
+
+            <div class="skill-category">
+                <h3>Tools & Technologies</h3>
+                <p>Git, GitHub, Jira, Jupyter Notebooks, Docker, LLMs, Prompt Engineering</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <h2>Let's Connect!</h2>
+        <p>Interested in collaborating or want to learn more about my work?</p>
+        
+        <div class="contact-links">
+            <a href="https://linkedin.com/in/ekaterina-bremel-65b1b1238" target="_blank" class="contact-link">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/bremelket" target="_blank" class="contact-link">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="mailto:bremelket@gmail.com" class="contact-link">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+            <a href="Ekaterina_Bremel_Resume.pdf" class="contact-link" download>
+                <i class="fas fa-download"></i> Resume
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Ekaterina Bremel | Built with passion for data science</p>
+    </footer>
+</body>
+</html>
